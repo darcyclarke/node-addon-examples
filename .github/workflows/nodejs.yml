@@ -3,9 +3,9 @@ on: [push]
 jobs:
   nightly-daily-test:
     runs-on: ubuntu-latest
-    container: node
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
       - run: npm i -g n && n nightly
       - run: node -p process.versions
       - name: Environment Information
